@@ -1,36 +1,16 @@
-const express = require('express')
+const express = require('express');
+const movieRoutes = require('./routes/movies.routes');
 
-const app  = express ()
-const port= 3000;
-app.get("/",(req,res)=>{
-    res.send('hi i am thanu')
-})
-//CURD functionality of movies
+const app = express();
+const port = 3000;
 
-//for Reading
-app.get("/movies",()=>{
-    res.send("")
-})
+app.get("/", (req, res) => {
+    res.send('Hi, I am Thanushan');
+});
 
-//For creating movie
+// CRUD functionality of movies
+app.use("/",movieRoutes);
 
-app.post("/movies",()=>{
-    res.send("")
-})
-
-//for updating movie
-app.put("/movies:id",()=>{
-    res.send("")
-})
-
-//for deleting movie
- app.delete("/movies:id",()=>{
-    res.send("")
-})
-
-
-
-app.listen(port,()=>{
-    console.log(`this server is at localhost`)
-})
-
+app.listen(port, () => {
+    console.log(`Server is running on http://localhost:${port}`);
+});
