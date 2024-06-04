@@ -69,8 +69,15 @@ const movieDetail =async(req,res)=>{
 
 }
 
- const movieDelete =(req,res)=>{
-    res.send(" send all")
+ const movieDelete =async(req,res)=>{
+    // res.send(" send all")
+    const movieId = req.params.id;
+    try {
+        await  Movie.deleteOne({_id:movieId})
+        return res.json({message:"Movie Deleted"});
+    } catch (error) {
+        return res.status(500).json({message:error.message});
+    }
 }
 module.exports = {
     movieIndex,
