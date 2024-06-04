@@ -1,5 +1,5 @@
 const express = require('express')
-const { movieIndex, movieCreate, movieUpdate, movieDelete } = require('../Controllers/Controllers')
+const { movieIndex, movieCreate, movieUpdate, movieDelete, movieDetail } = require('../Controllers/Controllers')
 
 const router = express.Router()
 
@@ -8,6 +8,9 @@ const router = express.Router()
 
 //for Reading
 router.get("/",movieIndex)
+
+
+router.get("/:id",movieDetail)
 
 //For creating movie
 
