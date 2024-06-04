@@ -1,4 +1,5 @@
 const express = require('express')
+const { movieIndex, movieCreate, movieUpdate, movieDelete } = require('../Controllers/Controllers')
 
 const router = express.Router()
 
@@ -6,24 +7,16 @@ const router = express.Router()
 //CURD functionality of movies
 
 //for Reading
-router.get("/movies",(req,res)=>{
-    res.send("get all movie")
-})
+router.get("/",movieIndex)
 
 //For creating movie
 
-router.post("/movies",(req,res)=>{
-    res.send("post all movie")
-})
+router.post("/",movieCreate)
 
 //for updating movie
-router.put("/movies:id",(req,res)=>{
-    res.send("put all movie")
-})
+router.put("/:id",movieUpdate)
 
 //for deleting movie
-router.delete("/movies:id",(req,res)=>{
-    res.send(" send all")
-})
+router.delete("/:id",movieDelete)
 
 module.exports = router;
