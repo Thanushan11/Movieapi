@@ -5,6 +5,8 @@ const connectDb = require('./lib/db');
 const app = express();
 const port = 3000;
 
+//json midlle ware
+app.use(express.json())
 
 
 app.get("/", (req, res) => {
